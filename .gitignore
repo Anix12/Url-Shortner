@@ -1,0 +1,23 @@
+# Ignore node_modules folders
+/FRONTEND/node_modules/
+/BACKEND/node_modules/
+
+# Ignore build/dist folders
+/FRONTEND/build/
+/FRONTEND/dist/
+/BACKEND/build/
+/BACKEND/dist/
+
+# Ignore environment variables files
+/FRONTEND/.env
+/BACKEND/.env
+*.env
+
+# Logs
+*.log
+logs/
+
+# OS and editor files
+.DS_Store
+.vscode/
+.idea/
