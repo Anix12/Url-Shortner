@@ -3,8 +3,9 @@ import { verifyToken } from "../utils/helper.js";
 
 export const authMiddleware = async (req, res, next) => {
     const token = req.cookies.accessToken;
-    if (!token) throw res.status(401).json({ message: "Unauthorized User" })
-
+    if (!token) return next();
+    
+    console.log("If token is not present, we can skip the authentication")
     try {
         const decoded = await verifyToken(token); //decoded=userId
         const user = await findUserByUserId(decoded);

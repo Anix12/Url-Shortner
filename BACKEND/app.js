@@ -1,4 +1,5 @@
 import express from 'express';
+const PORT = process.env.PORT || 3000;
 
 import connectDB from './src/config/mongodb.config.js';
 
@@ -37,7 +38,7 @@ app.use("/:id", redirectFromShortUrl);
 
 app.use(errorHandler);
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     connectDB();
-    console.log("Server is Listening at port 3000");
+    console.log(`Server is Listening at port ${PORT}`);
 })  
