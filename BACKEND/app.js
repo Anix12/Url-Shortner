@@ -21,7 +21,7 @@ import { attachUser } from './src/utils/attachUser.js';
 
 const app = express();
 
-const FrontendURL= process.env.FRONTEND_URL;
+const FrontendURL= process.env.APP_URL_Frontend;
 app.use(cors({
    // origin: "http://localhost:5173",
     origin: FrontendURL,
