@@ -21,12 +21,28 @@ import { attachUser } from './src/utils/attachUser.js';
 
 const app = express();
 
-const FrontendURL= process.env.APP_URL_Frontend;
+const allowedOrigins = [
+  process.env.APP_URL_Frontend,     
+  'http://localhost:5173'           
+];
+
 app.use(cors({
-   // origin: "http://localhost:5173",
-    origin: FrontendURL,
-    credentials: true
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed from this origin"));
+    }
+  },
+  credentials: true
+}));
+
+// app.use(cors({
+//    // origin: "http://localhost:5173",
+//     origin: FrontendURL,
+//     credentials: true
+// }))
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
