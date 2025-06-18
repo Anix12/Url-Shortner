@@ -20,8 +20,11 @@ import cookieParser from 'cookie-parser';
 import { attachUser } from './src/utils/attachUser.js';
 
 const app = express();
+
+const FrontendURL= process.env.FRONTEND_URL;
 app.use(cors({
-    origin: "http://localhost:5173",
+   // origin: "http://localhost:5173",
+    origin: FrontendURL,
     credentials: true
 }))
 app.use(express.json())
