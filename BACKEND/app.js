@@ -21,25 +21,16 @@ import { attachUser } from './src/utils/attachUser.js';
 
 const app = express();
 
-const allowedOrigins = [
-  process.env.APP_URL_Frontend,
-  'http://localhost:5173'
-];
+app.use(cors({
+  origin: "https://url-shortner-ochre-phi.vercel.app",
+  credentials: true
+}));
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-};
-app.use(cors(corsOptions));
-
-// Handle preflight requests for all routes
-app.options('*', cors(corsOptions));
+// Optionally allow preflight
+app.options('*', cors({
+  origin: "https://url-shortner-ochre-phi.vercel.app",
+  credentials: true
+}));
 
 // app.use(cors({
 //    // origin: "http://localhost:5173",
