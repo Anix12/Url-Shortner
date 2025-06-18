@@ -22,20 +22,24 @@ import { attachUser } from './src/utils/attachUser.js';
 const app = express();
 
 const allowedOrigins = [
-  process.env.APP_URL_Frontend,     
-  'http://localhost:5173'           
+  process.env.APP_URL_Frontend,
+  'http://localhost:5173'
 ];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error("CORS not allowed from this origin"));
+      callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
-}));
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
+// Handle preflight requests for all routes
+app.options('*', cors(corsOptions));
 
 // app.use(cors({
 //    // origin: "http://localhost:5173",
@@ -58,6 +62,6 @@ app.use("/:id", redirectFromShortUrl);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-    connectDB();
-    console.log(`Server is Listening at port ${PORT}`);
+  connectDB();
+  console.log(`Server is Listening at port ${PORT}`);
 })  
