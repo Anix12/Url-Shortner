@@ -21,22 +21,22 @@ import { attachUser } from './src/utils/attachUser.js';
 
 const app = express();
 
-app.use(cors({
-  origin: "https://url-shortner-ochre-phi.vercel.app",
-  credentials: true
-}));
-
-// Optionally allow preflight
-app.options('*', cors({
-  origin: "https://url-shortner-ochre-phi.vercel.app",
-  credentials: true
-}));
-
 // app.use(cors({
-//    // origin: "http://localhost:5173",
-//     origin: FrontendURL,
-//     credentials: true
-// }))
+//   origin: "https://url-shortner-ochre-phi.vercel.app",
+//   credentials: true
+// }));
+
+// // Optionally allow preflight
+// app.options('*', cors({
+//   origin: "https://url-shortner-ochre-phi.vercel.app",
+//   credentials: true
+// }));
+
+app.use(cors({
+   // origin: "http://localhost:5173",
+    origin: "https://url-shortner-ochre-phi.vercel.app/",
+    credentials: true
+}))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
