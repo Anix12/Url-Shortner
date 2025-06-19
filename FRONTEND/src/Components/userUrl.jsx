@@ -48,6 +48,9 @@ const UserUrl = () => {
         )
     }
 
+    // Get backend URL from environment variable (e.g., VITE_BACKEND_API for Vite)
+    const backendUrl = import.meta.env.VITE_BACKEND_API || 'http://localhost:3000';
+
     return (
         <div className="bg-white rounded-lg mt-5 shadow-md overflow-hidden">
             <div className="overflow-x-auto max-h-[calc(100vh-300px)]">
@@ -79,12 +82,12 @@ const UserUrl = () => {
                                 <td className="px-6 py-4">
                                     <div className="text-sm">
                                         <a
-                                            href={`http://localhost:3000/${url.short_url}`}
+                                            href={`${backendUrl}/${url.short_url}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-blue-600 hover:text-blue-900 hover:underline"
                                         >
-                                            {`localhost:3000/${url.short_url}`}
+                                            {`${backendUrl.replace(/^https?:\/\//, '')}/${url.short_url}`}
                                         </a>
                                     </div>
                                 </td>
@@ -97,7 +100,7 @@ const UserUrl = () => {
                                 </td>
                                 <td className="px-6 py-4 text-sm font-medium">
                                     <button
-                                        onClick={() => handleCopy(`http://localhost:3000/${url.short_url}`, url._id)}
+                                        onClick={() => handleCopy(`${backendUrl}/${url.short_url}`, url._id)}
                                         className={`inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm w-28 justify-center
                                          ${copiedId === url._id
                                                 ? 'bg-green-600 text-white hover:bg-green-700'
