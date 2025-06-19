@@ -1,10 +1,8 @@
 import express from 'express';
-const PORT = process.env.PORT || 3000;
-
-import connectDB from './src/config/mongodb.config.js';
-
 import dotenv from 'dotenv';
 dotenv.config()
+
+import connectDB from './src/config/mongodb.config.js';
 
 import short_url from './src/routes/short_url.route.js';
 import auth_routes from './src/routes/auth.routes.js';
@@ -19,22 +17,12 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { attachUser } from './src/utils/attachUser.js';
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 
-// app.use(cors({
-//   origin: "https://url-shortner-ochre-phi.vercel.app",
-//   credentials: true
-// }));
-
-// // Optionally allow preflight
-// app.options('*', cors({
-//   origin: "https://url-shortner-ochre-phi.vercel.app",
-//   credentials: true
-// }));
-
 app.use(cors({
-   // origin: "http://localhost:5173",
-    origin: "https://url-shortner-ochre-phi.vercel.app/",
+   origin: process.env.APP_URL_Frontend,
+    // origin: "https://url-shortner-ochre-phi.vercel.app",
     credentials: true
 }))
 
