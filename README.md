@@ -81,6 +81,3 @@ FRONTEND/     # React frontend (Vite)
 - **Frontend:** React, Vite, Axios
 
 ---
-
-## License
-This project is licensed under the MIT License.

@@ -6,10 +6,16 @@ import { useQueryClient } from '@tanstack/react-query';
 const UrlShortener = () => {
     const [url, setUrl] = useState("");
     const [shortUrl, setShortUrl] = useState('');
+    const [summary, setSummary] = useState('');
+    const [tags, setTags] = useState([]);
+    const frontendUrl = import.meta.env.VITE_BACKEND_API || window.location.origin;
     const [copied, setCopied] = useState(false);
     const [error, setError] = useState('');
     const [customUrl, setCustomUrl] = useState("")
     const { isAuthenticated } = useSelector((state) => state.auth)
+    const [loading, setLoading] = useState(false);
+
+    const cleanSummary = summary.replace(/#[\w]+/g, '').trim();
 
     const queryClient = useQueryClient();
 
@@ -18,7 +24,9 @@ const UrlShortener = () => {
         setError('');
         setCopied(false);
         setShortUrl('');
+        setLoading(true);
 
+        /* HIta Backend Url error ahe  */
         try {
             let response;
             if (isAuthenticated && customUrl) {
@@ -26,11 +34,16 @@ const UrlShortener = () => {
             } else {
                 response = await createShortUrl(url);
             }
-            setShortUrl(response);
+            // response should be { shortUrl, summary, tags }
+            setShortUrl(frontendUrl + '/' + response.shortUrl);
+            setSummary(response.summary || '');
+            setTags(response.tags || []);
             queryClient.invalidateQueries({ queryKey: ['userUrls'] });
         } catch (err) {
             console.error("Error while shortening URL:", err);
             setError(err.response?.data?.message || "An unexpected error occurred.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -47,6 +60,7 @@ const UrlShortener = () => {
                 });
         }
     };
+
 
     return (
         <div className="min-h-full flex items-center justify-center px-4">
@@ -66,9 +80,11 @@ const UrlShortener = () => {
                     <button
                         type="submit"
                         className="w-full bg-blue-600 text-white py-3 rounded-md font-medium hover:bg-blue-700 transition duration-300"
+                        disabled={loading}
                     >
-                        Shorten URL
+                        {loading ? "Waking backend..." : "Shorten URL"}
                     </button>
+                    {loading && <div className="loader">Loading...</div>}
                 </form>
 
                 {error && (
@@ -93,8 +109,8 @@ const UrlShortener = () => {
                 )}
                 {shortUrl && (
                     <div className="mt-6 bg-gray-50 border border-gray-200 rounded-md p-4">
-                        <h2 className="text-lg font-semibold text-gray-700 mb-2">Your shortened URL</h2>
-                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center">
+                        <h2 className="text-lg font-semibold text-gray-700 mb-2">Shortened URL Details</h2>
+                        <div className="mb-3 flex flex-col sm:flex-row items-stretch sm:items-center">
                             <input
                                 type="text"
                                 readOnly
@@ -107,6 +123,18 @@ const UrlShortener = () => {
                             >
                                 {copied ? 'Copied!' : 'Copy'}
                             </button>
+                        </div>
+                        <div className="mb-2">
+                            <span className="font-medium text-gray-700">Summary: </span>
+                            <span className="text-gray-600 text-sm">{cleanSummary}</span>
+                        </div>
+                        <div>
+                            <span className="font-medium text-gray-700">Tags: </span>
+                            <div className="inline-flex flex-wrap gap-2">
+                                {tags.map((tag, idx) => (
+                                    <span key={idx} className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">{tag}</span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 )}

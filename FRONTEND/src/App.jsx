@@ -1,6 +1,7 @@
 import { Outlet } from '@tanstack/react-router';
 import NaveBar from './Components/NaveBar.jsx';
-
+import { useEffect } from "react";
+import AxiosInstance from "./utils/AxiosInstance";
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from './store/slice/authSlice.js';
 import { useNavigate } from '@tanstack/react-router';
@@ -14,6 +15,10 @@ function App() {
     dispatch(logout());
     navigate({ to: '/auth' });
   };
+
+  useEffect(() => {
+    AxiosInstance.get("/api/ping").catch(() => { });
+  }, []);
 
   return (
     <div className="flex flex-col h-screen">

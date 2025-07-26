@@ -79,7 +79,7 @@ const UserUrl = () => {
                                 <td className="px-6 py-4">
                                     <div className="text-sm">
                                         <a
-                                            href={`https://url-shortner-production-99bb.up.railway.app/${url.short_url}`}
+                                            href={`https://url-shortner-production-99bb.up.railway.app/${url.short_url}`}  //backend link 
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-blue-600 hover:text-blue-900 hover:underline"

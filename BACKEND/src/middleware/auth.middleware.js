@@ -5,7 +5,7 @@ export const authMiddleware = async (req, res, next) => {
     const token = req.cookies.accessToken;
     if (!token) return next();
     
-    console.log("If token is not present, we can skip the authentication")
+    // console.log("If token is not present, we can skip the authentication")
     try {
         const decoded = await verifyToken(token); //decoded=userId
         const user = await findUserByUserId(decoded);

@@ -1,4 +1,5 @@
 import express from 'express';
+
 import dotenv from 'dotenv';
 dotenv.config()
 
@@ -22,7 +23,6 @@ const app = express();
 
 app.use(cors({
    origin: process.env.APP_URL_Frontend,
-    // origin: "https://url-shortner-ochre-phi.vercel.app",
     credentials: true
 }))
 
@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());
 
 app.use(attachUser);
-
+app.get('/api/ping', (req, res) => res.sendStatus(200));
 app.use("/api/user", user_routes);
 app.use("/api/auth", auth_routes)
 app.use("/api/create", short_url);
@@ -44,3 +44,8 @@ app.listen(PORT, () => {
   connectDB();
   console.log(`Server is Listening at port ${PORT}`);
 })  
+
+
+// #development trials
+// APP_URL_Frontend="http://localhost:5173"
+// APP_URL_Backend="http://localhost:3000"
