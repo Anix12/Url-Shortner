@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/react-query'
 import { getAllUserUrls } from '../api/auth.api.js'
 
 const UserUrl = () => {
+
+    const backendUrl = import.meta.env.VITE_BACKEND_API || "https://url-shortner-production-99bb.up.railway.app";
     const { data: urls, isLoading, isError, error } = useQuery({
         queryKey: ['userUrls'],
         queryFn: getAllUserUrls,
@@ -79,12 +81,12 @@ const UserUrl = () => {
                                 <td className="px-6 py-4">
                                     <div className="text-sm">
                                         <a
-                                            href={`https://url-shortner-production-99bb.up.railway.app/${url.short_url}`}  //backend link 
+                                            href={`${backendUrl}/${url.short_url}`} 
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-blue-600 hover:text-blue-900 hover:underline"
                                         >
-                                            {`localhost:3000/${url.short_url}`}
+                                            {`${backendUrl}/${url.short_url}`}
                                         </a>
                                     </div>
                                 </td>
@@ -97,7 +99,7 @@ const UserUrl = () => {
                                 </td>
                                 <td className="px-6 py-4 text-sm font-medium">
                                     <button
-                                        onClick={() => handleCopy(`http://localhost:3000/${url.short_url}`, url._id)}
+                                        onClick={() => handleCopy(`${backendUrl}/${url.short_url}`, url._id)}
                                         className={`inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-md shadow-sm w-28 justify-center
                                          ${copiedId === url._id
                                                 ? 'bg-green-600 text-white hover:bg-green-700'
