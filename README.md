@@ -14,20 +14,34 @@ A full-stack URL Shortener application with user authentication, dashboard, and 
 👉 [Try the Website](https://url-shortner-ochre-phi.vercel.app/)   
 
 ## Folder Structure
-```
-BACKEND/      # Node.js/Express backend
-FRONTEND/     # React frontend (Vite)
-```
-
-
-url-shortener/  
- ┣ 📂 src/  
- ┃ ┣ 📂 routes/          # API endpoints  
- ┃ ┣ 📂 models/          # Database models  
- ┃ ┣ 📂 public/          # Static files  
- ┃ ┣ app.js              # Main server file  
- ┣ package.json  
- ┗ README.md  
+URL SHORTNER  
+│
+├── BACKEND/           # Node.js/Express backend  
+│   ├── src/  
+│   │   ├── config/        # Configuration files (DB, etc.)  
+│   │   ├── controllers/   # Route controllers  
+│   │   ├── dao/           # Data Access Objects  
+│   │   ├── middleware/    # Auth & other middlewares  
+│   │   ├── model/         # MongoDB models  
+│   │   ├── routes/        # API routes  
+│   │   ├── services/      # Business logic  
+│   │   └── utils/         # Utility/helper functions  
+│   ├── app.js  
+│   └── .env  
+│
+├── FRONTEND/          # React frontend (Vite)  
+│   ├── src/  
+│   │   ├── api/          # API calls  
+│   │   ├── Components/   # Reusable UI components  
+│   │   ├── Pages/        # Page-level components  
+│   │   ├── routing/      # React Router setup  
+│   │   ├── store/        # State management  
+│   │   └── utils/        # Utility functions  
+│   ├── App.jsx  
+│   ├── index.html  
+│   └── .env  
+│
+├── README.md  
 
 
 ## Getting Started
@@ -95,5 +109,6 @@ url-shortener/
 - **Frontend:** React, Vite, Axios
 
 ---
+
 
 
