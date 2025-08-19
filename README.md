@@ -14,36 +14,36 @@ A full-stack URL Shortener application with user authentication, dashboard, and 
 👉 [Try the Website](https://url-shortner-ochre-phi.vercel.app/)   
 
 ## Folder Structure
-URL-SHORTNER
-│
-├── 📂 BACKEND
+URL-SHORTNER  
+│  
+├── 📂 BACKEND  
 │   ├── 📂 src
-│   │   ├── ⚙️ config
-│   │   ├── 🧑‍💻 controllers
-│   │   ├── 💾 dao
-│   │   ├── 🛡️ middleware
-│   │   ├── 🗄️ model
-│   │   ├── 🌐 routes
-│   │   ├── 🔧 services
-│   │   └── 🛠️ utils
-│   ├── 📄 app.js
-│   └── 📄 .env
-│
-├── 📂 FRONTEND
-│   ├── 📂 src
-│   │   ├── 🔗 api
-│   │   ├── 🎨 Components
-│   │   ├── 📑 Pages
-│   │   ├── 🧭 routing
-│   │   ├── 📦 store
-│   │   └── 🛠️ utils
-│   ├── 📄 App.jsx
-│   ├── 📄 index.html
-│   └── 📄 .env
-│
-├── 📄 README.md
-
-
+│   │   ├── ⚙️ config  
+│   │   ├── 🧑‍💻 controllers  
+│   │   ├── 💾 dao  
+│   │   ├── 🛡️ middleware  
+│   │   ├── 🗄️ model  
+│   │   ├── 🌐 routes  
+│   │   ├── 🔧 services  
+│   │   └── 🛠️ utils  
+│   ├── 📄 app.js  
+│   └── 📄 .env  
+│  
+├── 📂 FRONTEND  
+│   ├── 📂 src  
+│   │   ├── 🔗 api  
+│   │   ├── 🎨 Components  
+│   │   ├── 📑 Pages  
+│   │   ├── 🧭 routing  
+│   │   ├── 📦 store  
+│   │   └── 🛠️ utils  
+│   ├── 📄 App.jsx  
+│   ├── 📄 index.html  
+│   └── 📄 .env  
+│  
+├── 📄 README.md  
+  
+  
 ## Getting Started
 
 ### Prerequisites
@@ -109,6 +109,7 @@ URL-SHORTNER
 - **Frontend:** React, Vite, Axios
 
 ---
+
 
 
 
