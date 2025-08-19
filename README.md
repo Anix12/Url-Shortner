@@ -16,9 +16,9 @@ A full-stack URL Shortener application with user authentication, dashboard, and 
 ## Folder Structure
 URL-SHORTNER  
 │  
-├── BACKEND/              
+├── BACKEND/             
 │   ├── src/  
-│   │   ├── config/      
+│   │   ├── config/  
 │   │   ├── controllers/   
 │   │   ├── dao/          
 │   │   ├── middleware/   
@@ -30,8 +30,8 @@ URL-SHORTNER
 │   └── .env              
 │  
 ├── FRONTEND/             
-│   ├── src/
-│   │   ├── api/           
+│   ├── src/  
+│   │   ├── api/         
 │   │   ├── Components/    
 │   │   ├── Pages/         
 │   │   ├── routing/     
@@ -109,6 +109,7 @@ URL-SHORTNER
 - **Frontend:** React, Vite, Axios
 
 ---
+
 
 
 
