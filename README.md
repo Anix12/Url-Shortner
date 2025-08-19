@@ -10,11 +10,23 @@ A full-stack URL Shortener application with user authentication, dashboard, and 
 - RESTful API
 - Modern React frontend (Vite)
 
+## 🚀 Live Demo
+👉 [Try the App](https://url-shortner-blond-omega.vercel.app)   
+
 ## Folder Structure
 ```
 BACKEND/      # Node.js/Express backend
 FRONTEND/     # React frontend (Vite)
 ```
+url-shortener/
+ ┣ 📂 src/
+ ┃ ┣ 📂 routes/          # API endpoints
+ ┃ ┣ 📂 models/          # Database models
+ ┃ ┣ 📂 public/          # Static files
+ ┃ ┣ app.js              # Main server file
+ ┣ package.json
+ ┗ README.md
+
 
 ## Getting Started
 
@@ -81,3 +93,4 @@ FRONTEND/     # React frontend (Vite)
 - **Frontend:** React, Vite, Axios
 
 ---
+
