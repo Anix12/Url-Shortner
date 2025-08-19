@@ -15,33 +15,33 @@ A full-stack URL Shortener application with user authentication, dashboard, and 
 
 ## Folder Structure
 URL-SHORTNER  
-│  
-├── 📂 BACKEND  
-│   ├── 📂 src
-│   │   ├── ⚙️ config  
-│   │   ├── 🧑‍💻 controllers  
-│   │   ├── 💾 dao  
-│   │   ├── 🛡️ middleware  
-│   │   ├── 🗄️ model  
-│   │   ├── 🌐 routes  
-│   │   ├── 🔧 services  
-│   │   └── 🛠️ utils  
-│   ├── 📄 app.js  
-│   └── 📄 .env  
-│  
-├── 📂 FRONTEND  
-│   ├── 📂 src  
-│   │   ├── 🔗 api  
-│   │   ├── 🎨 Components  
-│   │   ├── 📑 Pages  
-│   │   ├── 🧭 routing  
-│   │   ├── 📦 store  
-│   │   └── 🛠️ utils  
-│   ├── 📄 App.jsx  
-│   ├── 📄 index.html  
-│   └── 📄 .env  
-│  
-├── 📄 README.md  
+│
+├── BACKEND/              
+│   ├── src/  
+│   │   ├── config/      
+│   │   ├── controllers/   
+│   │   ├── dao/          
+│   │   ├── middleware/   
+│   │   ├── model/        
+│   │   ├── routes/       
+│   │   ├── services/      
+│   │   └── utils/        
+│   ├── app.js             
+│   └── .env              
+│
+├── FRONTEND/             
+│   ├── src/
+│   │   ├── api/           
+│   │   ├── Components/    
+│   │   ├── Pages/         
+│   │   ├── routing/     
+│   │   ├── store/        
+│   │   └── utils/         
+│   ├── App.jsx
+│   ├── index.html
+│   └── .env
+│
+├── README.md
   
   
 ## Getting Started
@@ -109,6 +109,7 @@ URL-SHORTNER
 - **Frontend:** React, Vite, Axios
 
 ---
+
 
 
 
