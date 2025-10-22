@@ -13,9 +13,10 @@ A full-stack URL Shortener application with user authentication, dashboard, and 
 ## 🚀 Live Demo
 👉 [Try the Website](https://url-shortner-ochre-phi.vercel.app/)   
 
-##System Design  
+## System Design  
+  
 <img width="1917" height="968" alt="Screenshot 2025-10-21 231345" src="https://github.com/user-attachments/assets/d6d9ea31-badc-44df-9936-3c1f441dc5ed" />
-
+  
 
 ## Folder Structure
 URL-SHORTNER  
@@ -113,6 +114,7 @@ URL-SHORTNER
 - **Frontend:** React, Vite, Axios
 
 ---
+
 
 
 
